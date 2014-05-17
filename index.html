@@ -1,3 +1,115 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>BTEC Checker</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- Bootstrap -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+	    <script src="http://code.jquery.com/jquery.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+        <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+        <!--
+        <script type="text/javascript" src="js/btec.js"></script>
+        -->
+        <script>
+			function displayResult()
+				{
+					var total, final;
+					total = parseInt(document.getElementsByName('U01')[0].value, 10);
+					total = total + parseInt(document.getElementsByName('U02')[0].value, 10);
+					total = total + parseInt(document.getElementsByName('U10')[0].value, 10);
+					total = total + parseInt(document.getElementsByName('U11')[0].value, 10);
+					
+					document.getElementById('grade').innerHTML = total;
+                    
+                    if (total >= 150) {
+                        final = "Pass";
+                    }
+                    if (total >= 170) {
+                        final = "Merit";
+                    }
+                    if (total >= 190) {
+                        final = "Distinction";
+                    }
+                    if (total >= 200) {
+                        final = "Distinction*";
+                    }
+                    if (parseInt(document.getElementsByName('U01')[0].value, 10) == 0) {
+                        final = "NYA";
+                    }
+                    if (parseInt(document.getElementsByName('U02')[0].value, 10) == 0) {
+                        final = "NYA";
+                    }
+                    if (parseInt(document.getElementsByName('U10')[0].value, 10) == 0) {
+                        final = "NYA";
+                    }
+                    if (parseInt(document.getElementsByName('U11')[0].value, 10) == 0) {
+                        final = "NYA";
+                    }
+					document.getElementById('final').innerHTML = final;
 
-This will be the BTEC Gradr
+				};
+		</script>
+	</head>
+	<body>
+	    <div class="container-fluid">
+			<h1>BTEC Level 2 Checker</h1>
+			<p>The purpose of this page is to allow you to determine a final grade for your BTEC,
+				based on the grades of each unit studied.</p>
+			<p>Select the grade by clicking the appropriate level for the unit.
+				Options cannot be changed after selection; carefully consider your
+				choice.</p>
+			<div class="row">
+				<div class="span7">
+					<form>
+						<fieldset>
+                            <legend>Unit 1: Research for Creative Media Production</legend>
+                            <select name="U01" onchange="displayResult()">
+                              <option value="0">NYA</option>
+                              <option value="25">Pass</option>
+                              <option value="30">Merit</option>
+                              <option value="35">Distinction</option>
+                            </select>
+						</fieldset>
+						<fieldset>
+							<legend>Unit 2: Communication Techniques</legend>
+                            <select name="U02" onchange="displayResult()">
+                              <option value="0">NYA</option>
+                              <option value="25">Pass</option>
+                              <option value="30">Merit</option>
+                              <option value="35">Distinction</option>
+                            </select>
+						</fieldset>
+						<fieldset>
+							<legend>Unit 10: Animation Techniques</legend>
+                            <select name="U10" onchange="displayResult()">
+                              <option value="0">NYA</option>
+                              <option value="50">Pass</option>
+                              <option value="60">Merit</option>
+                              <option value="70">Distinction</option>
+                            </select>
+						</fieldset>
+						<fieldset>
+							<legend>Unit 11: Web Authoring</legend>
+                            <select name="U11" onchange="displayResult()">
+                              <option value="0">NYA</option>
+                              <option value="50">Pass</option>
+                              <option value="60">Merit</option>
+                              <option value="70">Distinction</option>
+                            </select>
+						</fieldset>
+					</form>
+				</div>
+				<div class="span3 offset1">
+					<h2 class="drop">Result</h2>
+					<p class="drop">Each unit earns points based on grade. Your point score is:</p>
+					<h3 id="grade">-</h3>
+					<p class="drop">Points are added together to get an overall grade. Your grade is:</p>
+					<h1 id="final">-</h1>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
