@@ -19,34 +19,31 @@
 					var total, final;
 					total = parseInt(document.getElementsByName('U01')[0].value, 10);
 					total = total + parseInt(document.getElementsByName('U02')[0].value, 10);
-					total = total + parseInt(document.getElementsByName('U10')[0].value, 10);
-					total = total + parseInt(document.getElementsByName('U11')[0].value, 10);
+					total = total + parseInt(document.getElementsByName('U05')[0].value, 10);
+					total = total + parseInt(document.getElementsByName('U06')[0].value, 10);
 					
 					document.getElementById('grade').innerHTML = total;
                     
-                    if (total >= 150) {
+                    final = "Unclassified";
+                    if (total >= 24) {
+                        final = "Level 1";
+                    }
+                    if (total >= 48) {
                         final = "Pass";
                     }
-                    if (total >= 170) {
+                    if (total >= 66) {
                         final = "Merit";
                     }
-                    if (total >= 190) {
+                    if (total >= 84) {
                         final = "Distinction";
                     }
-                    if (total >= 200) {
+                    if (total >= 90) {
                         final = "Distinction*";
                     }
-                    if (parseInt(document.getElementsByName('U01')[0].value, 10) == 0) {
-                        final = "NYA";
-                    }
-                    if (parseInt(document.getElementsByName('U02')[0].value, 10) == 0) {
-                        final = "NYA";
-                    }
-                    if (parseInt(document.getElementsByName('U10')[0].value, 10) == 0) {
-                        final = "NYA";
-                    }
-                    if (parseInt(document.getElementsByName('U11')[0].value, 10) == 0) {
-                        final = "NYA";
+                    if (parseInt(document.getElementsByName('U01')[0].value, 10) + parseInt(document.getElementsByName('U02')[0].value, 10) < 24) {
+	                    if (parseInt(document.getElementsByName('U01')[0].value, 10) + parseInt(document.getElementsByName('U02')[0].value, 10) >= 12) {
+                        	final = "Level 1";
+                        }
                     }
 					document.getElementById('final').innerHTML = final;
 
@@ -65,39 +62,43 @@
 				<div class="span7">
 					<form>
 						<fieldset>
-                            <legend>Unit 1: Research for Creative Media Production</legend>
+                            <legend>Unit 1: Digital Media Sectors and Audiences (exam)</legend>
                             <select name="U01" onchange="displayResult()">
-                              <option value="0">NYA</option>
-                              <option value="25">Pass</option>
-                              <option value="30">Merit</option>
-                              <option value="35">Distinction</option>
+                              <option value="0">Unclassified</option>
+                              <option value="6">Level 1</option>
+                              <option value="12">Pass</option>
+                              <option value="18">Merit</option>
+                              <option value="24">Distinction</option>
                             </select>
 						</fieldset>
 						<fieldset>
-							<legend>Unit 2: Communication Techniques</legend>
+							<legend>Unit 2: Planning and Pitching a Digital Media Product</legend>
                             <select name="U02" onchange="displayResult()">
-                              <option value="0">NYA</option>
-                              <option value="25">Pass</option>
-                              <option value="30">Merit</option>
-                              <option value="35">Distinction</option>
+                              <option value="0">Unclassified</option>
+                              <option value="6">Level 1</option>
+                              <option value="12">Pass</option>
+                              <option value="18">Merit</option>
+                              <option value="24">Distinction</option>
                             </select>
 						</fieldset>
 						<fieldset>
-							<legend>Unit 10: Animation Techniques</legend>
-                            <select name="U10" onchange="displayResult()">
-                              <option value="0">NYA</option>
-                              <option value="50">Pass</option>
-                              <option value="60">Merit</option>
-                              <option value="70">Distinction</option>
+							<legend>Unit 5: Digital Publishing Production</legend>
+                            <select name="U05" onchange="displayResult()">
+                              <option value="0">Unclassified</option>
+                              <option value="6">Level 1</option>
+                              <option value="12">Pass</option>
+                              <option value="18">Merit</option>
+                              <option value="24">Distinction</option>
                             </select>
 						</fieldset>
 						<fieldset>
-							<legend>Unit 11: Web Authoring</legend>
-                            <select name="U11" onchange="displayResult()">
-                              <option value="0">NYA</option>
-                              <option value="50">Pass</option>
-                              <option value="60">Merit</option>
-                              <option value="70">Distinction</option>
+							<legend>Unit 6: Website Production</legend>
+                            <select name="U06" onchange="displayResult()">
+                              <option value="0">Unclassified</option>
+                              <option value="6">Level 1</option>
+                              <option value="12">Pass</option>
+                              <option value="18">Merit</option>
+                              <option value="24">Distinction</option>
                             </select>
 						</fieldset>
 					</form>
